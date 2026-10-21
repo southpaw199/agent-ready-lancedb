@@ -19,6 +19,7 @@ Tasks T2, T3, and T4 depend on embedding models, so check their expected answers
 ```bash
 mkdir -p ~/agent-runs/reference && cd ~/agent-runs/reference
 python3 -m venv .venv && source .venv/bin/activate
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 pip install lancedb pandas sentence-transformers open-clip-torch pillow
 R=~/projects/agent-ready-docs/case-studies/lancedb/reviews/agent-task-review
 python $R/make_sample_images.py .

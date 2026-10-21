@@ -1,5 +1,7 @@
 # LanceDB examples
 
+[![LanceDB examples](https://github.com/southpaw199/agent-ready-docs/actions/workflows/lancedb-examples.yml/badge.svg)](https://github.com/southpaw199/agent-ready-docs/actions/workflows/lancedb-examples.yml)
+
 [`docs-search.ipynb`](docs-search.ipynb) builds semantic search over the [FastAPI documentation](https://fastapi.tiangolo.com) with [LanceDB](https://docs.lancedb.com). It covers:
 
 1. Downloading and cleaning a real documentation set

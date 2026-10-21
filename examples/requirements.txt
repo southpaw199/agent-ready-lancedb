@@ -1,5 +1,11 @@
-# Pin exact versions once the notebook runs end to end (pip freeze, then trim).
-lancedb
-pandas
-sentence-transformers
-jupyter
+# Exact versions tested with Python 3.12.3 on Ubuntu 24.04 (WSL).
+# The extra index supplies the CPU-only PyTorch build, a much smaller download than the default.
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+jupyter==1.1.1
+lancedb==0.40.0
+pandas==3.0.6
+pyarrow==26.0.0
+sentence-transformers==6.2.0
+torch==2.14.1+cpu
+transformers==5.20.2

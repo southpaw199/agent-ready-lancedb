@@ -1,0 +1,5 @@
+# Pin exact versions once the notebook runs end to end (pip freeze, then trim).
+lancedb
+pandas
+sentence-transformers
+jupyter

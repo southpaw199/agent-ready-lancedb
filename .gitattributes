@@ -1,0 +1,5 @@
+# Normalize line endings so Windows, WSL, and CI agree
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.lance binary

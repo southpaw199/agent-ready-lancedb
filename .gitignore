@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local LanceDB data created by examples
+**/data/
+*.lance/
+**/ex_lancedb/
+
+# Editors and OS
+.vscode/
+.DS_Store
+Thumbs.db

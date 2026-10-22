@@ -19,6 +19,7 @@ Tasks T2, T3, and T4 depend on embedding models, so check their expected answers
 ```bash
 mkdir -p ~/agent-runs/reference && cd ~/agent-runs/reference
 python3 -m venv .venv && source .venv/bin/activate
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 pip install lancedb pandas sentence-transformers open-clip-torch pillow
 R=~/projects/agent-ready-docs/case-studies/lancedb/reviews/agent-task-review
 python $R/make_sample_images.py .
@@ -26,6 +27,20 @@ for t in 1 2 3 4 5; do echo "== T$t"; python $R/reference/t${t}_reference.py; do
 ```
 
 If a reference result differs from the success criteria below, update the criteria before running any agent. Never show the agent these files.
+
+### Reference results
+
+Run on October 21, 2026, with the packages pip installed that day. All five match the success criteria.
+
+| Task | Reference result |
+| --- | --- |
+| T1 | Chef's knife (id 1, distance 0.03), then Cutting board (id 2, distance 0.09) |
+| T2 | Cats sentence first (distance 1.30), then parrots and rabbits |
+| T3 | Vector: passages 1, 5, 3. Full-text: passage 3 only. Hybrid with `RRFReranker`: passages 3, 1, 5 |
+| T4 | Image search: `red_circle.png` (0.056), `blue_circle.png`, `yellow_circle.png`. Text search: `red_circle.png` (1.28), `red_square.png`, `blue_circle.png` |
+| T5 | Row 123 first with and without the index; 97 ms without, 38 ms with; 2 of 10 results shared with the exact search |
+
+Search times in T5 vary by machine; compare an agent's times with each other, not with these.
 
 ## Scoring
 

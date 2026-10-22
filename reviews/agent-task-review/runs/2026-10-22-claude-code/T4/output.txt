@@ -1,0 +1,20 @@
+# Output of task.py, run by the reviewer in the agent's folder on 2026-10-22.
+# The agent's summary mentioned only a "table didn't exist yet" warning; this run shows two deprecation warnings instead.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+100%|███████████████████████████████████████████████████████| 12/12 [00:00<00:00, 13.62it/s]
+Stored 12 images in table 'shapes'
+[2026-10-22T18:23:17Z WARN  lance::dataset::scanner] Deprecation warning, this behavior will change in the future. This search specified output columns but did not include `_distance`.  Currently the `_distance` column will be included.  In the future it will not.  Call `disable_scoring_autoprojection` to adopt the future behavior and avoid this warning
+
+Top 3 images most similar to query.png:
+  red_circle.png         distance=0.0279
+  blue_circle.png        distance=0.1637
+  yellow_circle.png      distance=0.1715
+[2026-10-22T18:23:17Z WARN  lance::dataset::scanner] Deprecation warning, this behavior will change in the future. This search specified output columns but did not include `_distance`.  Currently the `_distance` column will be included.  In the future it will not.  Call `disable_scoring_autoprojection` to adopt the future behavior and avoid this warning
+
+Top 3 images matching the text "a red circle":
+  red_circle.png         distance=0.6376
+  red_square.png         distance=0.7342
+  blue_circle.png        distance=0.7367
+
+Read back red_circle.png from the table: 1286 bytes, 224x224 RGB

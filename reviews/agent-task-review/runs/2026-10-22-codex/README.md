@@ -18,6 +18,10 @@ A second agent on the same five tasks, so findings can be compared across model 
 | ChatGPT connectors | Off (`features.apps = false`) |
 | Memories | Off (`features.memories = false`) |
 
+## Notes
+
+- Codex printed a warning that bubblewrap, the Linux sandboxing tool it prefers, wasn't available, and used its built-in sandbox instead. Bubblewrap was kept off the path for all five tasks so the runs are comparable.
+
 ## How Codex differs from the Claude Code run
 
 - Codex has no page-reading tool, so it read docs pages with `curl`. The full page contents it downloaded are left out of the transcripts here, which keep the commands and the agent's messages.
@@ -28,3 +32,4 @@ A second agent on the same five tasks, so findings can be compared across model 
 | Task | Outcome | Hints | Folder |
 | --- | --- | --- | --- |
 | T1 | pass | 0 | [T1](T1/) |
+| T2 | pass | 0 | [T2](T2/) |

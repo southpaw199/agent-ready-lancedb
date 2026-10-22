@@ -1,0 +1,22 @@
+# Output of task.py, run by the reviewer in the agent's folder on 2026-10-22.
+# The deprecation warning also appeared in the agent's own final run; its summary didn't mention it, and the code still uses create_fts_index.
+Loading weights: 100%|██████████| 103/103 [00:00<00:00, 1704.64it/s]
+/home/southpaw199/agent-runs/2026-10-22-codex/T3/task.py:66: DeprecatedWarning: create_fts_index is deprecated as of 0.25.0. Use create_index() with config=FTS() instead.
+  table.create_fts_index("text", replace=True)
+Created help_center: 8 passages
+Local embedding model: all-MiniLM-L6-v2 (CPU)
+Question: How do I reverse my most recent edit?
+
+Vector search (top 3; returned 3)
+1. [passage 1; _distance=0.819051] Press Ctrl+Z to undo the last change you made. Press Ctrl+Y to redo it.
+2. [passage 5; _distance=1.126065] To restore an earlier copy of a file, open File, then Version History.
+3. [passage 3; _distance=1.187425] Track changes records every edit so reviewers can accept or reject them.
+
+Full-text search (BM25) (top 3; returned 1)
+1. [passage 3; _score=1.744191] Track changes records every edit so reviewers can accept or reject them.
+Fewer than 3 passages matched; no unmatched passages were added.
+
+Hybrid search (RRFReranker, K=60) (top 3; returned 3)
+1. [passage 3; _relevance_score=0.032266] Track changes records every edit so reviewers can accept or reject them.
+2. [passage 1; _relevance_score=0.016393] Press Ctrl+Z to undo the last change you made. Press Ctrl+Y to redo it.
+3. [passage 5; _relevance_score=0.016129] To restore an earlier copy of a file, open File, then Version History.

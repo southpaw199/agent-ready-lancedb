@@ -33,3 +33,6 @@ A second agent on the same five tasks, so findings can be compared across model 
 | --- | --- | --- | --- |
 | T1 | pass | 0 | [T1](T1/) |
 | T2 | pass | 0 | [T2](T2/) |
+| T3 | pass | 0 | [T3](T3/) |
+
+Each task folder holds the agent's final `task.py` and its exported conversation, `transcript.md`. Where the reviewer's own run showed something the agent left out of its summary, the folder also has `output.txt`.

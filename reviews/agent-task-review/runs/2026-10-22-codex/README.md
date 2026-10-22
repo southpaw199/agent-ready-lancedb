@@ -20,7 +20,7 @@ A second agent on the same five tasks, so findings can be compared across model 
 
 ## Notes
 
-- Codex printed a warning that bubblewrap, the Linux sandboxing tool it prefers, wasn't installed, and used its built-in sandbox instead. Bubblewrap was left uninstalled for all five tasks so the runs are comparable.
+- Codex printed a warning that bubblewrap, the Linux sandboxing tool it prefers, wasn't available, and used its built-in sandbox instead. Bubblewrap was kept off the path for all five tasks so the runs are comparable.
 
 ## How Codex differs from the Claude Code run
 

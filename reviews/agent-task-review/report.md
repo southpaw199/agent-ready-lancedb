@@ -1,6 +1,6 @@
 # LanceDB: agent task review report
 
-**Author:** Alan Sloan · [LinkedIn](https://www.linkedin.com/in/alansloan) · [GitHub](https://github.com/southpaw199)
+**Author:** Alan Sloan · [linkedin.com/in/alansloan](https://www.linkedin.com/in/alansloan) · [github.com/southpaw199](https://github.com/southpaw199)
 
 - **Method:** [agent task review](../../../../methods/agent-task-review/method.md), version 0.1
 - **Agents:** Claude Code 2.1.306 (claude-opus-5-5) and Codex CLI 0.163.0 (GPT-6.1-Sol, reasoning "low")

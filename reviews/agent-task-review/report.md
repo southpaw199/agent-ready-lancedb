@@ -1,5 +1,7 @@
 # LanceDB: agent task review report
 
+**Author:** Alan Sloan · [LinkedIn](https://www.linkedin.com/in/alansloan) · [GitHub](https://github.com/southpaw199)
+
 - **Method:** [agent task review](../../../../methods/agent-task-review/method.md), version 0.1
 - **Agents:** Claude Code 2.1.306 (claude-opus-5-5) and Codex CLI 0.163.0 (GPT-6.1-Sol, reasoning "low")
 - **Runs:** October 22, 2026, against the live docs at [docs.lancedb.com](https://docs.lancedb.com), with LanceDB 0.40.0
@@ -113,3 +115,7 @@ Most of Codex's errors and extra time came from its sandbox, not the docs: netwo
 - [Run log](run-log.csv): one row per attempt
 - [Findings log](findings.md): evidence and status for each finding
 - Runs: [Claude Code](runs/2026-10-22-claude-code/) and [Codex](runs/2026-10-22-codex/), with each task's code, transcript, and the reviewer's own output where it differed from the agent's summary
+
+---
+
+© 2026 Alan Sloan. This report is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): you may share and adapt it, with credit to the author.

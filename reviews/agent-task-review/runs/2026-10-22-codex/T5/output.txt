@@ -1,0 +1,15 @@
+# Output of task.py, run by the reviewer in the agent's folder on 2026-10-22. No warnings: the agent had fixed both deprecated calls.
+# The agent's final explanation of when to use an index is at the end of transcript.md.
+LanceDB 0.40.0; NumPy 2.5.4; PyArrow 26.0.0
+Table: 100,000 rows x 128 float32 dimensions; seed=42
+Index: IVF_PQ, L2, 316 partitions, 16 sub-vectors; all rows indexed
+Query: row/id 123; k=10; self-match included
+Timing: median of 10 warmed searches, including result materialization
+Without index (exact): 84.398 ms
+  IDs: [123, 44547, 44218, 3346, 91506, 51484, 42787, 25341, 66262, 995]
+  Distances: [0.0, 14.055785, 14.28872, 14.323168, 14.394813, 14.535334, 14.859823, 14.861417, 14.952941, 14.971413]
+With index (ANN; nprobes=20, refine_factor=10): 7.937 ms
+  IDs: [123, 25341, 45365, 8309, 34039, 57912, 80844, 36430, 22170, 4154]
+  Distances: [0.0, 14.861417, 15.425305, 15.438312, 15.52251, 15.618009, 15.636062, 15.681731, 15.68469, 15.715434]
+ANN recall@10 for this query: 20%
+Index construction is excluded; timings vary by machine and cache state.

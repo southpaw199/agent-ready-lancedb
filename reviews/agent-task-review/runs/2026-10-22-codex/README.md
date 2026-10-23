@@ -20,6 +20,7 @@ A second agent on the same five tasks, so findings can be compared across model 
 
 ## Notes
 
+- LanceDB scripts stalled when Codex ran them inside its sandbox: briefly in T1, and for 4 minutes in T5, before reruns outside the sandbox worked. This is a Codex environment issue, not a docs finding.
 - Codex printed a warning that bubblewrap, the Linux sandboxing tool it prefers, wasn't available, and used its built-in sandbox instead. Bubblewrap was kept off the path for all five tasks so the runs are comparable.
 
 ## How Codex differs from the Claude Code run
@@ -35,5 +36,6 @@ A second agent on the same five tasks, so findings can be compared across model 
 | T2 | pass | 0 | [T2](T2/) |
 | T3 | pass | 0 | [T3](T3/) |
 | T4 | pass | 0 | [T4](T4/) |
+| T5 | pass | 0 | [T5](T5/) |
 
 Each task folder holds the agent's final `task.py` and its exported conversation, `transcript.md`. Where the reviewer's own run showed something the agent left out of its summary, the folder also has `output.txt`.

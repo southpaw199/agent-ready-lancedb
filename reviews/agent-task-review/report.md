@@ -118,4 +118,4 @@ Most of Codex's errors and extra time came from its sandbox, not the docs: netwo
 
 ---
 
-© 2026 Alan Sloan. This report is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): you may share and adapt it, with credit to the author.
+© 2026 Alan Sloan. All rights reserved. You may read and link to this report; you may not copy, republish, or adapt it without permission. See [COPYRIGHT.md](../../../../COPYRIGHT.md).

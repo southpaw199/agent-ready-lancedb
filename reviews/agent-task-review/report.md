@@ -2,7 +2,7 @@
 
 **Author:** Alan Sloan · [linkedin.com/in/alansloan](https://www.linkedin.com/in/alansloan) · [github.com/southpaw199](https://github.com/southpaw199)
 
-- **Method:** [agent task review](../../../../methods/agent-task-review/method.md), version 0.1
+- **Method:** [agent task review](https://github.com/southpaw199/agent-ready-docs/blob/v0.1/methods/agent-task-review/method.md), version 0.1
 - **Agents:** Claude Code 2.1.306 (claude-opus-5-5) and Codex CLI 0.163.0 (GPT-6.1-Sol, reasoning "low")
 - **Runs:** October 22, 2026, against the live docs at [docs.lancedb.com](https://docs.lancedb.com), with LanceDB 0.40.0
 - **Findings checked against the live docs:** October 22 and 23, 2026
@@ -118,4 +118,4 @@ Most of Codex's errors and extra time came from its sandbox, not the docs: netwo
 
 ---
 
-© 2026 Alan Sloan. All rights reserved. You may read and link to this report; you may not copy, republish, or adapt it without permission. See [COPYRIGHT.md](../../../../COPYRIGHT.md).
+© 2026 Alan Sloan. All rights reserved. You may read and link to this report; you may not copy, republish, or adapt it without permission. See [COPYRIGHT.md](../../COPYRIGHT.md).

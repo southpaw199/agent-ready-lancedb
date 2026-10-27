@@ -1,6 +1,6 @@
 # LanceDB: agent task review tasks
 
-- **Method:** [agent task review](../../../../methods/agent-task-review/method.md), version 0.1
+- **Method:** [agent task review](https://github.com/southpaw199/agent-ready-docs/blob/v0.1/methods/agent-task-review/method.md), version 0.1
 - **Docs entry point given to the agent:** `https://docs.lancedb.com/llms.txt`
 - **Environment for every run:** Ubuntu 24.04 under WSL 2, Python 3.12, a new empty folder outside this repository, and a fresh agent session with no project instructions or memory
 
@@ -21,7 +21,7 @@ mkdir -p ~/agent-runs/reference && cd ~/agent-runs/reference
 python3 -m venv .venv && source .venv/bin/activate
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 pip install lancedb pandas sentence-transformers open-clip-torch pillow
-R=~/projects/agent-ready-docs/case-studies/lancedb/reviews/agent-task-review
+R=~/projects/agent-ready-lancedb/reviews/agent-task-review
 python $R/make_sample_images.py .
 for t in 1 2 3 4 5; do echo "== T$t"; python $R/reference/t${t}_reference.py; done
 ```
@@ -44,7 +44,7 @@ Search times in T5 vary by machine; compare an agent's times with each other, no
 
 ## Scoring
 
-- **Outcome** and **root cause** use the categories in the [rubric](../../../../methods/agent-task-review/rubric.md).
+- **Outcome** and **root cause** use the categories in the [rubric](https://github.com/southpaw199/agent-ready-docs/blob/v0.1/methods/agent-task-review/rubric.md).
 - A task passes only if you run `task.py` yourself in the agent's folder and every success criterion is met.
 - Deprecation warnings don't fail a task, but log each one with root cause `outdated-content` if the docs page the agent cited showed the deprecated form.
 - When the agent stalls, give the smallest hint that lets it continue, and log the hint word for word.
@@ -162,7 +162,7 @@ Search times in T5 vary by machine; compare an agent's times with each other, no
 **Starting state:** empty folder plus the sample images. Before the session, run [`make_sample_images.py`](make_sample_images.py) in the folder:
 
 ```bash
-python /path/to/agent-ready-docs/case-studies/lancedb/reviews/agent-task-review/make_sample_images.py .
+python /path/to/agent-ready-lancedb/reviews/agent-task-review/make_sample_images.py .
 ```
 
 That creates `images/` (12 shapes: circle, square, and triangle in red, green, blue, and yellow) and `query.png` (a slightly smaller red circle in a different position). Then start the agent session. Don't show the agent the script.

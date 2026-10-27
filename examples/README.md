@@ -1,6 +1,6 @@
 # LanceDB examples
 
-[![LanceDB examples](https://github.com/southpaw199/agent-ready-docs/actions/workflows/lancedb-examples.yml/badge.svg)](https://github.com/southpaw199/agent-ready-docs/actions/workflows/lancedb-examples.yml)
+[![LanceDB examples](https://github.com/southpaw199/agent-ready-lancedb/actions/workflows/lancedb-examples.yml/badge.svg)](https://github.com/southpaw199/agent-ready-lancedb/actions/workflows/lancedb-examples.yml)
 
 [`docs-search.ipynb`](docs-search.ipynb) builds semantic search over the [FastAPI documentation](https://fastapi.tiangolo.com) with [LanceDB](https://docs.lancedb.com). It covers:
 
@@ -27,7 +27,7 @@ On Windows, run everything inside WSL, and keep the repository in your Linux hom
 From the repository root:
 
 ```bash
-cd case-studies/lancedb/examples
+cd examples
 python3 -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip

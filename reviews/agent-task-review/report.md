@@ -44,9 +44,9 @@ No finding is High. Severities were added on October 27, 2026, after the review,
 
 ### 1. Synchronous Python examples use deprecated APIs
 
-| Severity | Seen with | Log |
+| ID | Severity | Seen with |
 | --- | --- | --- |
-| Medium | Both agents | F5, F7 |
+| F5, F7 | Medium | Both agents |
 
 This is the strongest finding in the review. Two pages show the deprecated form as the standard synchronous Python example, with no deprecation note. The current form appears only in the async examples.
 
@@ -61,9 +61,9 @@ This is the strongest finding in the review. Two pages show the deprecated form 
 
 ### 2. `_distance` behavior isn't explained
 
-| Severity | Seen with | Log |
+| ID | Severity | Seen with |
 | --- | --- | --- |
-| Medium | Both agents | F3 |
+| F3 | Medium | Both agents |
 
 Every vector search example in the [quickstart](https://docs.lancedb.com/quickstart.md) lists `_distance` in `.select()`, but nothing says why. An agent that selected only the columns it wanted, then read `_distance`, got a deprecation warning: today LanceDB adds `_distance` automatically, but a future release will stop, and that code will break.
 
@@ -73,9 +73,9 @@ Every vector search example in the [quickstart](https://docs.lancedb.com/quickst
 
 ### 3. No install guidance for local embedding models
 
-| Severity | Seen with | Log |
+| ID | Severity | Seen with |
 | --- | --- | --- |
-| Medium | Both agents | F4 |
+| F4 | Medium | Both agents |
 
 The [embedding quickstart](https://docs.lancedb.com/embedding/quickstart.md) and the [OpenCLIP page](https://docs.lancedb.com/integrations/embedding/openclip.md) use local models but give no install command for the model's package (`sentence-transformers`, `open-clip-torch`), and don't mention PyTorch. A default `pip install` pulls the full GPU build of PyTorch, several gigabytes.
 
@@ -85,9 +85,9 @@ The [embedding quickstart](https://docs.lancedb.com/embedding/quickstart.md) and
 
 ### 4. Returned L2 distances are squared, but the docs show a square root
 
-| Severity | Seen with | Log |
+| ID | Severity | Seen with |
 | --- | --- | --- |
-| Medium | One agent | F1 |
+| F1 | Medium | One agent |
 
 The [vector search](https://docs.lancedb.com/search/vector-search.md) metrics table defines `l2` with a square root. The `_distance` LanceDB returns for `l2` is the squared distance: in T1, 0.03 rather than 0.173. The page doesn't say which.
 

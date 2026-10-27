@@ -14,6 +14,11 @@ on:
       - ".github/workflows/lancedb-examples.yml"
   workflow_dispatch:
 
+# The job only checks out code and uploads an artifact, so the token
+# needs nothing beyond read access to the repo.
+permissions:
+  contents: read
+
 jobs:
   run-notebook:
     runs-on: ubuntu-24.04

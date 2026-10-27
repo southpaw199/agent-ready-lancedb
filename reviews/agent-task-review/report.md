@@ -2,12 +2,6 @@
 
 **Author:** Alan Sloan · [linkedin.com/in/alansloan](https://www.linkedin.com/in/alansloan) · [github.com/southpaw199](https://github.com/southpaw199)
 
-- **Method:** [agent task review](https://github.com/southpaw199/agent-ready-docs/blob/v0.1/methods/agent-task-review/method.md), version 0.1
-- **Agents:** Claude Code 2.1.306 (claude-opus-5-5) and Codex CLI 0.163.0 (GPT-6.1-Sol, reasoning "low")
-- **Runs:** October 22, 2026, against the live docs at [docs.lancedb.com](https://docs.lancedb.com), with LanceDB 0.40.0
-- **Findings checked against the live docs:** October 22 and 23, 2026
-- **Scope:** five hands-on tasks with LanceDB's Python library, from creating a table to building a vector index on 100,000 rows
-
 ## About this review
 
 This case study is part of [agent-ready-docs](https://github.com/southpaw199/agent-ready-docs), a project that tests whether documentation works for AI agents as well as for people.
@@ -24,6 +18,17 @@ An [agent task review](https://github.com/southpaw199/agent-ready-docs/blob/main
 6. **Report by root cause.** Each finding is traced to a cause, such as a missing prerequisite, an incomplete example, or a page the agent couldn't find, and comes with a specific fix. The report also credits what the docs do well.
 
 Each run is scored pass, pass with issues, pass with hints, or fail, and each finding is rated High, Medium, or Low severity, using a shared [rubric](https://github.com/southpaw199/agent-ready-docs/blob/main/methods/agent-task-review/rubric.md) so results can be compared across case studies.
+
+## This review
+
+This review tested LanceDB's documentation with five hands-on tasks using LanceDB's Python library, from creating a table to building a vector index on 100,000 rows.
+
+| Detail | Value |
+| --- | --- |
+| Method | Agent task review, [version 0.1](https://github.com/southpaw199/agent-ready-docs/blob/v0.1/methods/agent-task-review/method.md) |
+| Agents | Claude Code 2.1.306 (claude-opus-5-5) and Codex CLI 0.163.0 (GPT-6.1-Sol, reasoning "low") |
+| Runs | October 22, 2026, against the live docs at [docs.lancedb.com](https://docs.lancedb.com), with LanceDB 0.40.0 |
+| Findings checked against the live docs | October 22 and 23, 2026 |
 
 ## Summary
 

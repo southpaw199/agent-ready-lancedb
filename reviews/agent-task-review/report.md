@@ -6,6 +6,7 @@
 - **Agents:** Claude Code 2.1.306 (claude-opus-5-5) and Codex CLI 0.163.0 (GPT-6.1-Sol, reasoning "low")
 - **Runs:** October 22, 2026, against the live docs at [docs.lancedb.com](https://docs.lancedb.com), with LanceDB 0.40.0
 - **Findings checked against the live docs:** October 22 and 23, 2026
+- **Scope:** five hands-on tasks with LanceDB's Python library, from creating a table to building a vector index on 100,000 rows
 
 ## Summary
 
@@ -33,11 +34,21 @@ Every result was confirmed by running the agent's final code separately, not by 
 
 ## Main findings
 
-### 1. Synchronous Python examples use deprecated APIs (F5, F7)
+| Severity | Criteria |
+| --- | --- |
+| **High** | An agent following the docs would fail or get a wrong result. |
+| **Medium** | The task succeeds, but only with knowledge the docs don't give or by a route they don't point to. |
+| **Low** | Friction or polish. |
 
-**Seen with both agents. The strongest finding in the review.**
+No finding is High. Severities were added on October 27, 2026, after the review, using the scale in [method version 0.4](https://github.com/southpaw199/agent-ready-docs/blob/v0.4/methods/agent-task-review/rubric.md#severity). The findings themselves are unchanged.
 
-Two pages show the deprecated form as the standard synchronous Python example, with no deprecation note. The current form appears only in the async examples.
+### 1. Synchronous Python examples use deprecated APIs
+
+| Severity | Seen with | Log |
+| --- | --- | --- |
+| Medium | Both agents | F5, F7 |
+
+This is the strongest finding in the review. Two pages show the deprecated form as the standard synchronous Python example, with no deprecation note. The current form appears only in the async examples.
 
 | Page | Documented sync form | What LanceDB 0.40.0 prints |
 | --- | --- | --- |
@@ -48,9 +59,11 @@ Two pages show the deprecated form as the standard synchronous Python example, w
 
 **Suggested fix:** show `table.create_index("text", config=FTS())` and `table.create_index("vector", config=IvfPq(...))` as the synchronous Python examples, matching what the async examples already show. Until then, add a deprecation note beside the old forms.
 
-### 2. `_distance` behavior isn't explained (F3)
+### 2. `_distance` behavior isn't explained
 
-**Seen with both agents.**
+| Severity | Seen with | Log |
+| --- | --- | --- |
+| Medium | Both agents | F3 |
 
 Every vector search example in the [quickstart](https://docs.lancedb.com/quickstart.md) lists `_distance` in `.select()`, but nothing says why. An agent that selected only the columns it wanted, then read `_distance`, got a deprecation warning: today LanceDB adds `_distance` automatically, but a future release will stop, and that code will break.
 
@@ -58,9 +71,11 @@ Every vector search example in the [quickstart](https://docs.lancedb.com/quickst
 
 **Suggested fix:** add one sentence beside the first `.select()` example: include `_distance` (or `_score`, `_relevance_score`) explicitly if you need it, because it won't be added automatically in future releases.
 
-### 3. No install guidance for local embedding models (F4)
+### 3. No install guidance for local embedding models
 
-**Seen with both agents.**
+| Severity | Seen with | Log |
+| --- | --- | --- |
+| Medium | Both agents | F4 |
 
 The [embedding quickstart](https://docs.lancedb.com/embedding/quickstart.md) and the [OpenCLIP page](https://docs.lancedb.com/integrations/embedding/openclip.md) use local models but give no install command for the model's package (`sentence-transformers`, `open-clip-torch`), and don't mention PyTorch. A default `pip install` pulls the full GPU build of PyTorch, several gigabytes.
 
@@ -68,9 +83,11 @@ The [embedding quickstart](https://docs.lancedb.com/embedding/quickstart.md) and
 
 **Suggested fix:** add an install line to each local-model page (for example, `pip install lancedb sentence-transformers`) and a short note on installing the CPU-only PyTorch build when there's no GPU.
 
-### 4. Returned L2 distances are squared, but the docs show a square root (F1)
+### 4. Returned L2 distances are squared, but the docs show a square root
 
-**Seen with one agent.**
+| Severity | Seen with | Log |
+| --- | --- | --- |
+| Medium | One agent | F1 |
 
 The [vector search](https://docs.lancedb.com/search/vector-search.md) metrics table defines `l2` with a square root. The `_distance` LanceDB returns for `l2` is the squared distance: in T1, 0.03 rather than 0.173. The page doesn't say which.
 
@@ -80,10 +97,12 @@ The [vector search](https://docs.lancedb.com/search/vector-search.md) metrics ta
 
 ## Minor findings
 
-- **F2. A normal first run prints an alarming log line.** Creating a table prints `WARN lance::dataset::write::insert ... No existing dataset ... it will be created`. It's expected, but nothing in the quickstart, [Troubleshooting](https://docs.lancedb.com/troubleshooting.md), or the [OSS FAQ](https://docs.lancedb.com/faq/faq-oss.md) says so. Claude Code explained it; Codex left it out of every summary. *Fix:* one line in the quickstart, or a Troubleshooting entry.
-- **F6. Stop-word removal can drop the word that matters.** The full-text search pages document `remove_stop_words` (on by default) but not its effect on queries. In a companion notebook, it removed "after" from "How can I run code after returning a response?", so the right page wasn't found until stop words were kept. *Fix:* a short example of when to turn it off.
-- **F8. Two thresholds for when brute force stops being enough.** [Performance](https://docs.lancedb.com/performance.md) says brute-force search "works fine below ~100K vectors"; [vector search](https://docs.lancedb.com/search/vector-search.md) says it's "not scalable for datasets larger than a few hundred thousand vectors". *Fix:* use one figure in both places.
-- **F9. Remote-code warning is missing where agents start.** The `sentence-transformers` provider defaults `trust_remote_code` to `True`. Its [integration page](https://docs.lancedb.com/integrations/embedding/sentence-transformers.md) warns about this, but the [embedding quickstart](https://docs.lancedb.com/embedding/quickstart.md), which uses that provider, doesn't. The [Hugging Face page](https://docs.lancedb.com/integrations/embedding/huggingface.md) says to enable the setting only for trusted repositories, and that provider defaults it to off. Codex turned it off deliberately. *Fix:* carry the warning into the quickstart, or align the defaults.
+| ID | Finding | Severity | Suggested fix |
+| --- | --- | --- | --- |
+| F2 | **A normal first run prints an alarming log line.** Creating a table prints `WARN lance::dataset::write::insert ... No existing dataset ... it will be created`. It's expected, but nothing in the quickstart, [Troubleshooting](https://docs.lancedb.com/troubleshooting.md), or the [OSS FAQ](https://docs.lancedb.com/faq/faq-oss.md) says so. Claude Code explained it; Codex left it out of every summary. | Low | One line in the quickstart, or a Troubleshooting entry. |
+| F6 | **Stop-word removal can drop the word that matters.** The full-text search pages document `remove_stop_words` (on by default) but not its effect on queries. In a companion notebook, it removed "after" from "How can I run code after returning a response?", so the right page wasn't found until stop words were kept. | Low | A short example of when to turn it off. |
+| F8 | **Two thresholds for when brute force stops being enough.** [Performance](https://docs.lancedb.com/performance.md) says brute-force search "works fine below ~100K vectors"; [vector search](https://docs.lancedb.com/search/vector-search.md) says it's "not scalable for datasets larger than a few hundred thousand vectors". | Low | Use one figure in both places. |
+| F9 | **Remote-code warning is missing where agents start.** The `sentence-transformers` provider defaults `trust_remote_code` to `True`. Its [integration page](https://docs.lancedb.com/integrations/embedding/sentence-transformers.md) warns about this, but the [embedding quickstart](https://docs.lancedb.com/embedding/quickstart.md), which uses that provider, doesn't. The [Hugging Face page](https://docs.lancedb.com/integrations/embedding/huggingface.md) says to enable the setting only for trusted repositories, and that provider defaults it to off. Codex turned it off deliberately. | Low | Carry the warning into the quickstart, or align the defaults. |
 
 The full evidence for each finding, with run references, is in the [findings log](findings.md).
 

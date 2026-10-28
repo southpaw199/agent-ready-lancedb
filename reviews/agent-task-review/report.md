@@ -1,4 +1,4 @@
-# LanceDB: agent task review report
+# LanceDB: Agent Task Review Report
 
 **Author:** Alan Sloan · [linkedin.com/in/alansloan](https://www.linkedin.com/in/alansloan) · [github.com/southpaw199](https://github.com/southpaw199)
 

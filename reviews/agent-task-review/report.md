@@ -52,8 +52,7 @@ Every result was confirmed by running the agent's final code separately, not by 
 - **Tested code snippets.** Snippets are generated from tested code, so nothing either agent copied failed to run. The problems were deprecations, not broken examples.
 - **The embedding registry is explained clearly.** Neither agent fell back on computing embeddings by hand in T2, T3, or T4. Both used the schema's `SourceField` and `VectorField` exactly as documented.
 - **Reranking concepts land.** Both agents correctly explained why the RRF reranker ranked a weaker passage first in T3, using the [RRF page](https://docs.lancedb.com/reranking/rrf.md).
-- **LanceDB already audits its own docs.** The [docs repository](https://github.com/lancedb/docs) includes a weekly LLM-driven audit that compares the docs with the code to find gaps. This review is complementary: it tests the docs from the outside, by watching agents use them.
-
+ 
 ## Main findings
 
 | Severity | Criteria |

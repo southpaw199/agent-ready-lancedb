@@ -29,6 +29,7 @@ This review tested LanceDB's documentation with five hands-on tasks using LanceD
 | Agents | Claude Code 2.1.306 (claude-opus-5-5) and Codex CLI 0.163.0 (GPT-6.1-Sol, reasoning "low") |
 | Runs | October 22, 2026, against the live docs at [docs.lancedb.com](https://docs.lancedb.com), with LanceDB 0.40.0 |
 | Findings checked against the live docs | October 22 and 23, 2026 |
+| Test Data | Small datasets written into each task prompt (Appendix C): 6 products, 5 sentences, 8 help passages, 12 generated images, and 100,000 random vectors (NumPy seed 42). No external datasets were needed.|
 
 ## Summary
 
@@ -121,7 +122,7 @@ The [vector search](https://docs.lancedb.com/search/vector-search.md) metrics ta
 | ID | Finding | Severity | Suggested fix |
 | --- | --- | --- | --- |
 | F2 | **A normal first run prints an alarming log line.** Creating a table prints `WARN lance::dataset::write::insert ... No existing dataset ... it will be created`. It's expected, but nothing in the quickstart, [Troubleshooting](https://docs.lancedb.com/troubleshooting.md), or the [OSS FAQ](https://docs.lancedb.com/faq/faq-oss.md) says so. Claude Code explained it; Codex left it out of every summary. | Low | One line in the quickstart, or a Troubleshooting entry. |
-| F6 | **Stop-word removal can drop the word that matters.** The full-text search pages document `remove_stop_words` (on by default) but not its effect on queries. In a companion notebook, it removed "after" from "How can I run code after returning a response?", so the right page wasn't found until stop words were kept. | Low | A short example of when to turn it off. |
+| F6 | **Stop-word removal can drop the word that matters.** The full-text search pages document `remove_stop_words` (on by default) but not its effect on queries. In a companion notebook that indexes the FastAPI documentation (release 0.159.0, MIT license), it removed "after" from "How can I run code after returning a response?", so the right page wasn't found until stop words were kept. | Low | A short example of when to turn it off. |
 | F8 | **Two thresholds for when brute force stops being enough.** [Performance](https://docs.lancedb.com/performance.md) says brute-force search "works fine below ~100K vectors"; [vector search](https://docs.lancedb.com/search/vector-search.md) says it's "not scalable for datasets larger than a few hundred thousand vectors". | Low | Use one figure in both places. |
 | F9 | **Remote-code warning is missing where agents start.** The `sentence-transformers` provider defaults `trust_remote_code` to `True`. Its [integration page](https://docs.lancedb.com/integrations/embedding/sentence-transformers.md) warns about this, but the [embedding quickstart](https://docs.lancedb.com/embedding/quickstart.md), which uses that provider, doesn't. The [Hugging Face page](https://docs.lancedb.com/integrations/embedding/huggingface.md) says to enable the setting only for trusted repositories, and that provider defaults it to off. Codex turned it off deliberately. | Low | Carry the warning into the quickstart, or align the defaults. |
 

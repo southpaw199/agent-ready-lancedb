@@ -1,5 +1,9 @@
 # Case study: LanceDB
 
+Can AI coding agents complete real LanceDB tasks using only its documentation? Claude Code and Codex each attempted five tasks, from creating a table to building a vector index on 100,000 rows.
+
+**[Download the report (PDF)](https://github.com/southpaw199/agent-ready-lancedb/releases/latest/download/Alan-Sloan_LanceDB-Agent-Task-Review.pdf)** · [Read it online](reviews/agent-task-review/report.md)
+
 ## About this review
 
 This case study is part of [agent-ready-docs](https://github.com/southpaw199/agent-ready-docs), a project that tests whether documentation works for AI agents as well as for people.
@@ -53,7 +57,7 @@ No finding is High.
 | F8 | Two thresholds for when brute force stops being enough | Low |
 | F9 | Remote-code warning is missing where agents start | Low |
 
-**[Read the report](reviews/agent-task-review/report.md)** for each finding's evidence and suggested fix, what the docs do well, how the two agents compared, and the limitations. The [findings log](reviews/agent-task-review/findings.md) has the evidence for each finding, the [run log](reviews/agent-task-review/run-log.csv) has a row per run, and the [tasks](reviews/agent-task-review/tasks.md) file has each task's prompt and success criteria.
+**[Read the report](reviews/agent-task-review/report.md)** (or [download it as a PDF](https://github.com/southpaw199/agent-ready-lancedb/releases/latest/download/Alan-Sloan_LanceDB-Agent-Task-Review.pdf)) for each finding's evidence and suggested fix, what the docs do well, how the two agents compared, and the limitations. The [findings log](reviews/agent-task-review/findings.md) has the evidence for each finding, the [run log](reviews/agent-task-review/run-log.csv) has a row per run, and the [tasks](reviews/agent-task-review/tasks.md) file has each task's prompt and success criteria.
 
 ## Use of AI tools
 

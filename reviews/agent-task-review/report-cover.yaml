@@ -1,0 +1,21 @@
+case_study_number: 1
+title: "LanceDB: Agent Task Review Report"
+question: "Do the docs work for AI agents?"
+stats:
+  - number: "5/5"
+    text: "tasks passed by both agents, with no hints"
+  - number: "6/10"
+    text: "agent summaries left out or misdescribed warnings the code printed"
+details:
+  - label: "Agents"
+    value: "Claude Code and Codex"
+  - label: "Tasks"
+    value: "Five, from creating a table to a vector index on 100,000 rows"
+  - label: "Runs"
+    value: "October 22, 2026, against docs.lancedb.com, with LanceDB 0.40.0"
+  - label: "Method"
+    value: "Agent task review, version 0.1"
+  - label: "Report release"
+    value: "October 29, 2026"
+method_steps: ["real tasks", "docs only", "independent rerun", "findings with fixes"]
+repo: "github.com/southpaw199/agent-ready-lancedb"
